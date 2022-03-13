@@ -1,0 +1,44 @@
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mynet
+
+  dbapp:
+    image: sb-dbapp
+    ports:
+      - "8080:8080"
+    networks:
+      - mynet
+ 
+      
+  consumer:
+    image: sb-consumer
+    ports:
+      - "8082:8082"
+    networks:
+      - mynet
+    depends_on:
+      - rabbitmq
+    environment:
+      -  SPRING_RABBITMQ_HOST=rabbitmq
+    
+  producer:
+    image: sb-producer
+    ports:
+      - "8081:8081"
+    networks:
+      - mynet
+    depends_on:
+      - rabbitmq
+    environment:
+      -  SPRING_RABBITMQ_HOST=rabbitmq
+
+networks:
+  mynet:
+    driver: bridge
