@@ -31,7 +31,7 @@ public class Consumer {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI("http://127.0.0.1:8080/services/"+msg))
+                    .uri(new URI("http://dbapp:8080/services/"+msg))
                     .GET()
                     .build();
             HttpResponse<String> response=client.send(request,HttpResponse.BodyHandlers.ofString());

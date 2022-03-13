@@ -37,10 +37,3 @@ $ sudo docker-compose up
 * **http://localhost:8080/services/{tag}** : returns the id of the service using it's tag.
 * **http://localhost:8081/produce/{tag}**: send a GET parameter to the consumer queue.
 * **http://localhost:8081/produce**: send a Post parameter tag to the consumer queue.
-
----
-**NOTE**
-
-I do have a network problem with the consumer application it works fine if it's outside the container.
-
----
