@@ -1,4 +1,4 @@
-# Test Monaco Telecom
+# Monaco Telecom
 
 * The producer app will send a tag to the consumer queue (rabbitmq).
 
